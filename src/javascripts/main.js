@@ -1,4 +1,8 @@
+import firebase from 'firebase/app';
+import apiKeys from './helpers/apiKeys.json';
 import auth from './components/auth/auth';
+import myNavbar from './components/myNavbar/myNavbar';
+import authData from './helpers/data/authData';
 
 import '../styles/main.scss';
 
@@ -7,8 +11,10 @@ import '../styles/main.scss';
 // when logged in they should see a navbar with a brand, logout button, and an h1 on the page that says board
 
 const init = () => {
-  console.warn('hi');
+  firebase.initializeApp(apiKeys.firebaseConfig);
+  authData.checkLoginStatus();
   auth.loginButton();
+  myNavbar.logoutEvent();
 };
 
 init();
