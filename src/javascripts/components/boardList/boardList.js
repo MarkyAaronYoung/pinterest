@@ -8,7 +8,7 @@ import boardData from '../../helpers/data/boardData';
 
 const buildBoards = () => {
   boardData.getBoards()
-    .then((response) => console.warn('get boards worked!', response.data))
+    .then((boards) => console.warn('get boards worked!', boards))
     .catch((err) => console.error('get board broke', err));
   // const domString = '<h1>I see mushrooms</h1>';
   // utils.printToDom('#boards', domString);
