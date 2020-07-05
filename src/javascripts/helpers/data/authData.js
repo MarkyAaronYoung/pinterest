@@ -2,9 +2,11 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import boardList from '../../components/boardList/boardList';
+import pinsList from '../../components/pinsList/pinsList';
 
 const authDiv = $('#auth');
 const boardsDiv = $('#boards');
+const pinsDiv = $('#pins');
 const logoutButton = $('#navbar-logout-button');
 
 const checkLoginStatus = () => {
@@ -12,7 +14,9 @@ const checkLoginStatus = () => {
     if (user) {
       authDiv.addClass('hide');
       boardsDiv.removeClass('hide');
+      pinsDiv.removeClass('hide');
       logoutButton.removeClass('hide');
+      pinsList.buildPins();
       boardList.buildBoards();
     } else {
       authDiv.removeClass('hide');
