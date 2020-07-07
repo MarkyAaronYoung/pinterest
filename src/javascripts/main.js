@@ -18,6 +18,13 @@ const init = () => {
   authData.checkLoginStatus();
   auth.loginButton();
   myNavbar.logoutEvent();
+
+  $('body').on('mouseenter', '.board-card', (e) => {
+    e.target.closest('.card').classList.add('bg-dark');
+  });
+  $('body').on('mouseleave', '.board-card', (e) => {
+    e.target.closest('.card').classList.remove('bg-dark');
+  });
 };
 
 init();

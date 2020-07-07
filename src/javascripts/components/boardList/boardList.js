@@ -1,4 +1,5 @@
 import boardComponent from '../boards/boards';
+import boardPins from '../boardPins/boardPins';
 import boardData from '../../helpers/data/boardData';
 import utils from '../../helpers/utils';
 
@@ -24,6 +25,8 @@ const buildBoards = () => {
       domString += '</div>';
 
       utils.printToDom('#boards', domString);
+
+      $('body').on('click', '.board-card', boardPins.buildBoardPins);
     })
     .catch((err) => console.error('get board broke', err));
   // const domString = '<h1>I see mushrooms</h1>';
