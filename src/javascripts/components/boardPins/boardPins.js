@@ -1,4 +1,5 @@
 import boardData from '../../helpers/data/boardData';
+import boardPinsData from '../../helpers/data/boardPinsData';
 import utils from '../../helpers/utils';
 
 const buildBoardPins = (e) => {
@@ -6,6 +7,11 @@ const buildBoardPins = (e) => {
   boardData.getBoardById(boardId)
     .then((response) => {
       const board = response.data;
+
+      boardPinsData.getBoardPinsbyBoardId(board.id)
+        .then((res) => console.warn('getBoardPinsByBoardID worked', res))
+        .catch((err) => console.error('problem in getBoardPinsbyBoardId', err));
+
       const domString = `
         <h2 class="text-center">Featured Board</h2>
         <div class="col-12">
