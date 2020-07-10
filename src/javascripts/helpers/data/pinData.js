@@ -17,10 +17,15 @@ const getPins = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-const getBoardPinsbyBoardId = (boardpinBoardId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardpinBoardId}"`)
+const getBoardPinsbyBoardId = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
     .then((response) => {
-      const boardPins = response.data;
+      const boardPinsObj = response.data;
+      const boardPins = [];
+      Object.keys(boardPinsObj).forEach((boardPinsId) => {
+        boardPinsObj[boardPinsId].id = boardPinsId;
+        boardPins.push(boardPinsObj[boardPinsId]);
+      });
 
       resolve(boardPins);
     })
