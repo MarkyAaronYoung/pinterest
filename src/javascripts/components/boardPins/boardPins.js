@@ -1,5 +1,5 @@
 import boardData from '../../helpers/data/boardData';
-import boardPinsData from '../../helpers/data/boardPinsData';
+import boardPinData from '../../helpers/data/pinData';
 import utils from '../../helpers/utils';
 
 const buildBoardPins = (e) => {
@@ -8,7 +8,8 @@ const buildBoardPins = (e) => {
     .then((response) => {
       const board = response.data;
 
-      boardPinsData.getBoardPinsbyBoardId(board.id)
+      // boardPinsData.getBoardPinsbyBoardId(board.id)
+      boardPinData.getBoardPinsbyBoardId(boardId)
         .then((res) => console.warn('getBoardPinsByBoardID worked', res))
         .catch((err) => console.error('problem in getBoardPinsbyBoardId', err));
 
