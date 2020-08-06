@@ -1,10 +1,10 @@
+import './pins.scss';
+
 const pinBuilder = (pin) => {
   const domString = `
-    <div class="card" style="width: 18rem;">
+    <div class="pin-card">
       <img src="${pin.imgURL}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${pin.name}</h5>
-        </div>
+      <h5 class="card-title">${pin.name}</h5>
     </div>
   `;
 
