@@ -5,7 +5,6 @@ const boardBuilder = (board) => {
       <div class="card-body">
        <div class="card-header">${board.name}</div>
         <h5 class="card-title"></h5>
-        <p class="card-text">This Board</p>
       </div>
      </div>
     </div> 
